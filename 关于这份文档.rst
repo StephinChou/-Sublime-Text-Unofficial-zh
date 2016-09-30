@@ -1,0 +1,14 @@
+关于这份文档
+=======
+欢迎来到非官方的``Sublime Text``编辑器的文档！
+
+.. image:: http://docs.sublimetext.info/en/latest/_images/sample-intro.png
+
+`Sublime Text`_ 是一个功能多样的有趣文本编辑器，主要用来编写代码或者文章，并且可以自动完成一些重复的任务，因此你可以把你的精力集中到重要的事情上。``OS X`` , ``Windows`` , ``Linux`` 系统都可以运行
+
+如果你还不熟悉 ``Sublime Text`` ,请先阅读 ``基本概念`` 部分
+
+祝你学习愉快
+
+
+.. _Sublime Text: http://www.sublimetext.com
