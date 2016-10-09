@@ -1,0 +1,179 @@
+======
+安装
+======
+
+请先阅读官网上的 `使用条件`_. **Sublime Text并不是免费的**
+每个平台的安装步骤是不一样的
+
+32位还是64位？
+======
+
+
+OS X
+****
+OS X系统可以忽略这一段，现在OS X系统只有一个Sublime Text版本
+
+Winodws
+*******
+
+如果你使用的是较新的windows版本，那么应该可以运行64位的版本，如果不能，那么再试一试32位的(注：可打开`我的电脑`-`属性`查看是32位还是64位)
+
+Linux
+*****
+
+在你的终端运行如下命令检查系统类型::
+
+	uname -m
+
+
+Windows
+======
+
+便携还是不便携
+**************
+
+Sublime Text给Windows系统提供了两种"口味":常规 和 便携， 大多数用户推荐使用常规安装，而当你确实知道你需要便携版本的时候再使用它
+
+**常规安装** 把数据分成了两个文件夹：固定的安装文件夹，和 *数据文件夹* (用户的数据文件夹，稍后会做解释)。常规安装也会整合Sublime Text和文件资源管理器
+
+**便携安装** 把所有Sublime Text需要的文件保存到一个单独的文件夹里，这个文件夹可以随意移动并且编辑器仍旧可以继续工作
+
+如何安装常见版本的Sublime Text？
+*******************************
+
+1. 下载安装器
+2. 双击安装器
+
+如何安装便携版本的Sublime Text？
+*******************************
+
+1. 下载压缩文件
+2. 解压到你想要的文件夹里
+
+你会这个文件夹里找到一个可执行的 *sublime_text.exe* 程序
+
+OS X
+====
+
+1. 下载 ``.dmg`` 文件
+2. 打开 ``.dmg`` 文件
+3. 把Sublime Text包拖到 *Applications* 文件夹
+
+在终端运行下列命令来创建一个软链接
+::
+
+    ln -s  "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+
+Linux
+=====
+
+你可以下载包手动解压。另外，你可以使用命令行。
+
+Ubuntu
+******
+
+**i386**
+::
+
+	cd ~
+	wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_i386.deb
+
+**x64**
+::
+
+	cd ~
+	wget http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3083_amd64.deb
+
+其他Linux发行版
+***************
+
+**i386**
+::
+
+    cd ~
+    wget http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3083_x32.tar.bz2
+    tar vxjf sublime_text_3_build_3083_x32.tar.bz2
+
+**x64**
+::
+
+    cd ~
+    wget http://c758482.r82.cf2.rackcdn.com/sublime_text_3_build_3083_x64.tar.bz2
+    tar vxjf sublime_text_3_build_3083_x64.tar.bz2
+
+现在我们把解压缩后的文件移动到合适的地方
+::
+
+	sudo mv Sublime\ Text\ 3 /opt/
+
+最后，我们使用命令行创建一个软连接
+::
+
+	sudo ln -s /opt/Sublime\ Text\ 3/sublime_text /usr/bin/sublime
+
+在 ``Ubuntu`` 里，如果你想把Sublime Text 加到 ``Unity luncher`` 里，继续读下去
+首先我们需要创建一个文件
+::
+
+	sudo sublime /usr/share/applications/sublime.desktop
+
+把下列内容复制进去
+::
+
+	[Desktop Entry]
+	Version=1.0
+	Name=Sublime Text 3
+	# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+	# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+	GenericName=Text Editor
+
+	Exec=sublime
+	Terminal=false
+	Icon=/opt/Sublime Text 3/Icon/48x48/sublime_text.png
+	Type=Application
+	Categories=TextEditor;IDE;Development
+	X-Ayatana-Desktop-Shortcuts=NewWindow
+
+	[NewWindow Shortcut Group]
+	Name=New Window
+	Exec=sublime -n
+	TargetEnvironment=Unity
+
+如果你已经注册了Sublime Text,但是每次打开都要求你输入你的许可(license)，你应该尝试运行一下下列命令
+::
+
+	sudo chown -R username:username /home/username/.config /sublime-text-3
+
+只要把 ``username`` 替换成你的账户名就行了。这应该可以修复你用root权限打开Sublime Text，第一次输入许可证时的权限错误
+
+Release Channels
+================
+
+本文档编写时，有两个主要的Sublime Text版本：Sublime Text 2 和 Sublime Text 3。通常来说 Sublime Text 3是更好的选择，虽然从技术上来说还是个beta版，它和 Sublime Text 2一样稳定并且拥有更多特性
+
+只有在你运行Sublime Text 3时出现问题或者你依赖的插件在 Sublime Text 3上不可用时才推荐你使用 Sublime Text 2
+
+获取 Sublime Text 3
+*******************
+
+Sublime Text 3目前有两个发行渠道：
+
+* `Beta`_ (默认，推荐)
+* `Dev`_
+
+**Beta版本** 比开发版本在日复一日的使用中经过了更多的测试并且更加可靠，**大多数的用户应该只使用Beta版本**
+
+**dev渠道** 不稳定：它可能包含了许多bug，不能可靠地工作，并且比Beta版本更新得更频繁
+
+**Dev包只供注册用户使用**
+
+获取Sublime Text 2
+******************
+
+我们推荐你使用Sublime Text 3，但是如果你仍然想使用Sublime Text 2，你可以从 `这里`_ 下载
+
+
+.. _使用条件: http://www.sublimetext.com/buy
+.. _Beta: http://www.sublimetext.com/3
+.. _Dev: http://www.sublimetext.com/3dev
+.. _这里: http://www.sublimetext.com/2
