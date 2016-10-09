@@ -1,0 +1,124 @@
+========
+基本概念
+========
+
+概括
+====
+
+要完全理解这份指导的剩余部分，你需要熟悉这块内容里提出的一些概念
+
+公约
+====
+
+这份指导是一个Windows用户写的，大部分的操作指令只需要细微的修改就可以在其他平台运行
+
+除非特别说明，相对路径（例如，``Package/User``）均以 数据目录_ 开始
+
+查看键盘快捷键的时候我们指定了一些默认的组合键。如果你使用的是非美式布局的键盘，那么由于Sublime Text内部处理按键的原因，一些组合键可能和你的键盘不符
+
+精通Sublime Text需要时间
+========================
+
+精通Sublime Text需要大量的时间和练习，it's built around a handful of concepts that make for a consistent system once all the pieces come together.
+
+这份指导会教你怎么使用和配置 Sublime Text
+
+对程序员来说，Sublime Text是一个功能繁多的编辑器。但是不需要你是一名程序员，也可以使用它。并且你也不需要多方配置来使它工作--它是盒子之外的高效工具。然而，高手会很感激Sublime Text的可定制和可扩展的功能
+
+在接下来的段落里，当你已经使用了一段时间的编辑器后，我们会概述一些你所熟悉的关键的东西
+
+.. _数据目录:
+
+数据目录(Data)
+========
+
+几乎所有提供给用户的有趣的文件都在这个目录下，数据目录依据不同平台位于不同的地方：
+
+* Windows: ``%APPDATA%\\Sublime Text 3``
+* OS X: ``~/Library/Application Support/Sublime Text 3``
+* Linux: ``~/.config/sublime-text-3``
+
+如果你使用的是 **便携版本** (只存在于Windows平台)，查看一下 ``{Application}/Data``，这里 ``Application`` 就是你解压压缩包、可执行程序存放的目录
+
+注意：``Data`` 目录在便携版本里只会以这个名字存在。而在完全安装里，他会是上面展示的几个位置之一
+
+包目录(Package)
+===============
+
+这是位于数据目录下的一个关键目录，所有支持的编程资源和标记语言都存在这里
+
+（之后有更多包和资源的doc:`信息<扩展和自动化/包>`）
+
+你可以在主菜单访问包目录：**Preference->Browse Packages..** 还可以通过API接口调用 ``sublime.package_path()``,还可以通过其他我们后续会说明的方法
+
+在这份指导里，我们会把包文件夹描述为：*包*，*包路径*，*包文件夹*，*包目录*
+
+用户包(User Package)
+====================
+
+``{Package}/User`` 是个包罗万象的目录，它包括一些定制插件、片段、宏等等。你可以把它当成包目录里的私人领域，另外，它也包含了你大多数个性化的应用和插件设置
+
+更新Sublime Text也绝对不会更新覆盖 ``{Package}/User`` 的内容
+
+可编程的Sublime Text
+====================
+
+这个信息对程序员来说比较有帮助。其他用户只需要知道Sublime Text允许具有编程能力的用户给编辑器增加他们自己的特性
+
+Sublime Text开放了内部API（应用程序接口），用户可以使用 ``Python`` 程序语言来交互。 编辑器里已经内置了一个python的解释器，在开发插件的时候，这个内置的解释器可以很方便的检查编辑器的设置和快速测试API调用
+
+Sublime Text和插件把信息输出到控制台，要打开控制台，按组合键 :kbd:`Ctrl+\`` 或者选择主菜单：**View->Show Console** 
+
+下面就是Sublime Text的python控制台：
+
+.. image:: https://github.com/guillermooo/sublime-undocs/raw/sublime-text-3/source/basic-concepts-console.png
+
+你系统的python vs ``Sublime Text`` 内置的python
+***********************************************
+
+Sublime Text自带了一个python解释器，这和你系统的python解释器（如果有的话）是分离开的。内置的解释器仅仅用来和API交互，不做常规开发
+
+包，插件，资源和其他
+====================
+
+Sublime Text几乎所有方面都可以扩展和定制。你可以改变编辑器的行为，增加宏和片段，扩展菜单以及更多的事情。你甚至可以调用编辑器的API来创建一个全新的特性以建立一个复杂的插件
+
+Sublime Text广阔的扩展性就是你要学习很多配置文件的理由了：只不过是必须有一个地方来定义所有可用的偏好设置而已
+
+Sublime Text的配置文件基本都是预处理的结构语言：*JSON* 主导，但是你也可以找到XML文件。为了高性能的可扩展性，Sublime Text使用了python源代码文件
+
+为简洁起见，我们在这份指导里有时会把所有不同的配置文件统称为 *资源*
+
+Sublime Text会搜索包目录里的资源，我们之后会讨论包长度，但是简单来说，为了干净整洁，Sublime Text有一个包的概念：一个包含共同属性资源的文件夹（或者一个zip压缩档案），可能是更快写邮件，更高效写HTML，增加C,Ruby,Go等等语言的编码体验
+
+Textmate兼容性
+==============
+
+这段信息主要针对现在正在使用Sublimt Text的 Textmate的使用者
+
+Textmate是Mac的一款编辑器
+
+.. Sublimt Text和Textmate的兼容性
+另外，Sublimt Text要求所有的语法定义是 ``.tmLanguage`` 扩展名，所有的偏好文件是 ``.tmPreferences`` 扩展名。这意味着 ``.plist`` 文件会被忽略，即使它们存放于 *语法(Syntaxes)* 或 *偏好(Preferences)* 的子目录
+
+vi/Vim模拟器
+============
+这段信息主要针对现在正在使用Sublimt Text的 vi/Vim的使用者
+
+vi是一款古老的编辑器，可以让用户从键盘执行所有的操作。Vim是vi的一个改进版，仍然在广泛的使用中
+
+Sublime Text通过一个 *Vintage* 包提供了vi模拟器的功能，这个包默认是被 *禁用* 的,更多信息可参阅 ``Vintage`` 的 `官方文档`_
+
+一个Vintage的改进版：`Vintageous`_,提供了更好的vi/Vim编辑体验，比Vintage更新得更频繁，并且是开源项目
+
+.. _官方文档: http://www.sublimetext.com/docs/3/vintage.html
+.. _Vintageous: http://guillermooo.bitbucket.org/Vintageous
+
+emacs模拟器
+===========
+
+这段信息主要针对现在正在使用Sublimt Text的 emacs的使用者
+
+emacs是另一款程序员间非常流行的编辑器
+
+Sublimt Text没有提供内置的emacs模拟器，不过你可以尝试其他Sublimt Text用户创建的第三方插件包
