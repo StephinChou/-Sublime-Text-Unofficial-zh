@@ -1,6 +1,6 @@
 关于这份文档
 =======
-欢迎来到非官方的``Sublime Text``编辑器的文档！
+欢迎来到非官方的 ``Sublime Text`` 编辑器的文档！
 
 .. image:: http://docs.sublimetext.info/en/latest/_images/sample-intro.png
 
