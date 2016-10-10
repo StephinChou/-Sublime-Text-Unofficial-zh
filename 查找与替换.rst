@@ -1,0 +1,42 @@
+==========
+查找与替换
+==========
+
+Sublime Text主要有两个类型的查找：
+
+
+正则表达式
+==========
+
+Sublime Text的查找功能支持正则表达式——一个强大的文本查找与替换工具。正则表达式可以在文本里查找复杂的 *匹配模型*
+
+正则表达式的匹配模型是由许多符号和特殊的结构体组成。没有初始化的时候，正则表达式的匹配模型难以辨认理解，因为常用的字符还会兼作运算符，难以从字面理解
+
+下面是一个正则表达式匹配模型的示例：
+::
+	(?:Sw|P)i(?:tch|s{2})\s(?:it\s)?of{2}!
+
+术语 *正则表达式 (regular expression)* 经常被简写为 *regexp* 或者 *regex*
+
+为了充分利用Sublime Text的查找和替换功能的优势，你至少要学习一些基本的正则表达式，这份指导不会教你使用正则表达式
+
+搜索查找面板里的 **替换** 框也支持特殊符号，我们称之为 *格式化字符串* ,看起来和正则表达式非常像。格式化字符串允许你在把结果插入缓冲区之前执行复杂的文本转换。
+
+Sublime Text使用了 ``Boost`` 库的 ``Perl Compatible Regular Expressions (PCRE)`` 引擎来加强搜索面板的正则表达式
+
+在Sublime Text中使用正则表达式
+==============================
+
+要在Sublime Text中使用正则表达式，首先要在相应的搜索面板里启用正则表达式，点击可用按钮或者使用键盘快捷键都可以
+
+如果你在执行搜索之前没有启动正则表达式，那么搜索就会按照字面执行搜索
+
+.. image:: http://docs.sublimetext.info/en/latest/_images/search-and-replace-regex-sample.png
+
+.. 参看::
+
+	`Boost库的正则表达式文档 <http://www.boost.org/doc/libs/1_44_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html>`_
+		正则表达式文档.
+
+	`Boost库的格式化字符串文档 <http://www.boost.org/doc/libs/1_44_0/libs/regex/doc/html/boost_regex/format/perl_format.html>`_
+		格式化字符串文档. 注意Sublime Text额外把 :samp:`\\{n}` 解释为 :samp:`${n}`.
